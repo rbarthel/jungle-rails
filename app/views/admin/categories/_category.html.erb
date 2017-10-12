@@ -3,6 +3,6 @@
     <%= category.name %>
   </td>
   <td>
-    <%= Product.where(category_id: category.id).all.size %>
+    <%= category.products.length %>
   </td>
 </tr>
