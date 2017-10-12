@@ -2,4 +2,7 @@
   <td>
     <%= category.name %>
   </td>
+  <td>
+    <%= Product.where(category_id: category.id).all.size %>
+  </td>
 </tr>
