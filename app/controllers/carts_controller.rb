@@ -3,6 +3,11 @@ class CartsController < ApplicationController
   before_filter :authorize
 
   def show
+    if cart == {}
+      render :empty
+    else
+      render :show
+    end
   end
 
   def add_item
