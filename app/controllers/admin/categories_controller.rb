@@ -1,5 +1,7 @@
 class Admin::CategoriesController < ApplicationController
 
+  before_filter :authenticate
+
   def index
     @categories = Category.includes(:products).order(id: :desc)
   end

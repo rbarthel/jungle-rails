@@ -1,11 +1,11 @@
 class OrdersController < ApplicationController
 
+  before_filter :authorize, :except => [:show]
+
   def show
     @order = Order.find(params[:id])
     @line_items = LineItem.where(order_id: @order.id)
   end
-
-  before_filter :authorize
 
   def create
 
