@@ -3,15 +3,24 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @line_items = LineItem.where(order_id: @order.id)
-    p @line_items
   end
 
+  before_filter :authorize
+
   def create
+
     charge = perform_stripe_charge
     order  = create_order(charge)
 
+    p order
+
+    orderDB = Order.find(order.id)
+    line_items = LineItem.where(order_id: orderDB.id)
+    p line_items
+
     if order.valid?
       empty_cart!
+      RecieptMailer.email_receipt(current_user, orderDB, line_items).deliver_now
       redirect_to order, notice: 'Your Order has been placed.'
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }

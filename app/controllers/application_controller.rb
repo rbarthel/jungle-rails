@@ -10,9 +10,9 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
-  # def authorize
-  #   redirect_to '/login' unless current_user
-  # end
+  def authorize
+    redirect_to '/login' unless current_user
+  end
 
   def cart
     # value = cookies[:cart] || JSON.generate({})
