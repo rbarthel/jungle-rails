@@ -25,7 +25,19 @@
         </dl>
       </div>
       <div>
-        <%= form_for @review, url: product_reviews_path do |f| %>
+        <h4>Write a review:</h4>
+        <%= form_for [@product, @review] do |f| %>
+          <span class="field">
+            <%= f.label :rating %>
+            <%= f.select :rating, ['5', '4', '3', '2', '1'] %>
+          </span>
+          <span class="field">
+            <%= f.label :description %>
+            <%= f.text_area :description, id: :review_description %>
+          </span>
+          <span class="actions">
+            <%= f.submit %>
+          </span>
         <% end %>
       </div>
       <div>
