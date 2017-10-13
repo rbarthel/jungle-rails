@@ -1,0 +1,10 @@
+<% @reviews.each do |review| %>
+  <div>
+    <b>User:</b> <%= review.user.first_name %>
+    - <b>Rating:</b> <%= review.rating %>/5
+    <% if review.description && review.description != ''%>
+    - <b>Description:</b> <%= review.description %>
+    <% end %>
+  </div>
+  <br>
+<% end %>

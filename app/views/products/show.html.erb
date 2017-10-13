@@ -24,6 +24,14 @@
           <dd><%= @product.price %></dd>
         </dl>
       </div>
+      <div>
+        <%= form_for @review, url: product_reviews_path do |f| %>
+        <% end %>
+      </div>
+      <div>
+        <h4>Reviews:</h4>
+        <%= render(partial: 'products/review', locals: {reviews: @reviews}) %>
+      </div>
     </div>
 
   </article>
