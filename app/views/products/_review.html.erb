@@ -4,7 +4,7 @@
       <%= review.user.first_name %>
     </td>
     <td>
-      <%= review.rating %>/5
+      <%= '⭐ ' * review.rating %>
     </td>
     <td>
       <% if review.description != ''%>
