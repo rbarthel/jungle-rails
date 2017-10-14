@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path
     else
+      flash[:danger] = 'Username or password incorrect.'
       render :new
     end
   end

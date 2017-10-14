@@ -1,13 +1,20 @@
 <% @reviews.each do |review| %>
-  <div>
-    <b>User:</b> <%= review.user.first_name %>
-    - <b>Rating:</b> <%= review.rating %>/5
-    <% if review.description != ''%>
-    - <b>Description:</b> <%= review.description %>
-    <% end %>
-    <% if current_user && review.user.id == current_user.id %>
-      <%= link_to 'delete', review, method: :delete %>
-    <% end %>
-  </div>
-  <br>
+  <tr>
+    <td>
+      <%= review.user.first_name %>
+    </td>
+    <td>
+      <%= review.rating %>/5
+    </td>
+    <td>
+      <% if review.description != ''%>
+        <%= review.description %>
+      <% end %>
+    </td>
+    <td>
+      <% if current_user && review.user.id == current_user.id %>
+        <%= link_to 'delete', review, method: :delete %>
+      <% end %>
+    </td>
+  </tr>
 <% end %>
