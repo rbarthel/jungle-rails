@@ -21,6 +21,29 @@ end
 
 # Let's do this ...
 
+LineItem.destroy_all
+Order.destroy_all
+
+## USERS
+
+User.destroy_all
+
+puts "Generating your average bear. I mean user ..."
+
+User.create(first_name: 'John', last_name: 'Doe', email: 'jd@example.com', password: 'password', password_confirmation: 'password')
+User.create(first_name: 'Bob', last_name: 'Smith', email: 'bob1987@example.com', password: 'password', password_confirmation: 'password')
+User.create(first_name: 'Jerry', last_name: 'Hunter', email: 'hunter2@example.com', password: 'password', password_confirmation: 'password')
+
+## REVIEWS
+
+Review.destroy_all
+
+puts "Generating totally real reviews ..."
+
+Review.create(user_id: 1, product_id:  12, rating: 1, description: 'This is a really long review designed to overflow onto the next line for the purposes of testing what a really long review looks like.')
+Review.create(user_id: 2, product_id:  12, rating: 2, description: '2/5, 3.5/5 with rice')
+Review.create(user_id: 3, product_id:  12, rating: 3, description: '')
+
 ## CATEGORIES
 
 puts "Finding or Creating Categories ..."

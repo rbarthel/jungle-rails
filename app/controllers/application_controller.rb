@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def authorize
-    redirect_to '/login' unless current_user
+    redirect_to login_path flash[:danger] = 'You must be logged in to do that!' unless current_user
   end
 
   def cart
