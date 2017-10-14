@@ -2,8 +2,11 @@
   <div>
     <b>User:</b> <%= review.user.first_name %>
     - <b>Rating:</b> <%= review.rating %>/5
-    <% if review.description && review.description != ''%>
+    <% if review.description != ''%>
     - <b>Description:</b> <%= review.description %>
+    <% end %>
+    <% if current_user && review.user.id == current_user.id %>
+      <%= link_to 'delete', review, method: :delete %>
     <% end %>
   </div>
   <br>
